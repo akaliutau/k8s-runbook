@@ -1,0 +1,22 @@
+# ReplicaSet as a stateless service
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: randomizer
+spec:
+  # Three stateless copies of the application
+  replicas: 3
+  selector:
+    matchLabels:
+      app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+    spec:
+      containers:
+      - image: akaliutau/randomizer:1.0
+        name: randomizer
+        ports:
+        - containerPort: 8080
+          protocol: TCP

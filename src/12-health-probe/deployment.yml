@@ -1,0 +1,37 @@
+# Deployment for starting up the randomizer with liveness and readiness probes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+    spec:
+      containers:
+      - image: akaliutau/randomizer:1.0
+        name: randomizer
+        env:
+        # Tell randomizer to wait 20 seconds when starting up
+        - name: DELAY_STARTUP
+          value: "20"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          # Spring Boot's actuator comes in handy as a liveness probe check
+          # You can use the endpoint "/toggle-heath" to toggle the health state
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          # How long to wait until the liveness check should kick it.
+          initialDelaySeconds: 30
+        readinessProbe:
+          # We are checking for a file created by our app when its ready
+          exec:
+            command: [ "stat", "/tmp/randomizer-ready" ]

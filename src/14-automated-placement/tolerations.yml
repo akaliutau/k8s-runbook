@@ -1,0 +1,14 @@
+# Tolerations
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tolerations
+spec:
+  containers:
+  - image: akaliutau/randomizer:1.0
+    name: randomizer
+  tolerations:
+  - key: node-role.kubernetes.io/master
+    operator: Exists
+    effect: NoSchedule

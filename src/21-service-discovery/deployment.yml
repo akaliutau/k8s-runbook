@@ -1,0 +1,21 @@
+# DeploymentConfig for starting up the randomizer
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomizer
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+    spec:
+      containers:
+      - image: akaliutau/randomizer:1.0
+        name: randomizer
+        ports:
+        - containerPort: 8080
+          protocol: TCP

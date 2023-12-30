@@ -1,0 +1,30 @@
+# DeploymentConfig for starting up the randomizer
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+    spec:
+      containers:
+      - image: akaliutau/randomizer:1.0
+        name: randomizer
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          # Initial resource request for CPU and memory
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          # Upper limit until we want our application to grow at max
+          limits:
+            cpu: 200m
+            memory: 200Mi

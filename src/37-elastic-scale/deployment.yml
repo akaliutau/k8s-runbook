@@ -1,0 +1,40 @@
+# DeploymentConfig for starting up the randomizer-runtime
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+    spec:
+      containers:
+      - image: akaliutau/randomizer:1.0
+        name: randomizer
+        resources:
+          requests:
+            # Reserve 200 milli cores for this pod
+            cpu: 200m
+            memory: 200Mi
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+# A service for exposing our random generator
+apiVersion: v1
+kind: Service
+metadata:
+  name: randomizer
+spec:
+  selector:
+    app: randomizer
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  type: NodePort

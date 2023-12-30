@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: randomizer
+spec:
+  selector:
+    app: randomizer
+  ports:
+  - name: random
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  type: NodePort

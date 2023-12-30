@@ -6,7 +6,7 @@
 
 ```shell
 kubectl create ns debug-space
-kubectl create -f src/02-pod-probs.yaml -n debug-space
+kubectl create -f src/basics/02-pod-probs.yaml -n debug-space
 kubectl get pods -n debug-space -w
 ```
 
@@ -16,7 +16,7 @@ The application can write down the reason of termination to a pre-defined path, 
 so that one can see the termination reason quickly by checking the Pod definition.
 
 ```shell
-kubectl create -f src/02-termination-pod.yaml -n debug-space
+kubectl create -f src/basics/02-termination-pod.yaml -n debug-space
 kubectl get pod termination-pod -o yaml
 ```
 
@@ -39,21 +39,22 @@ The output:
 
 ## Checking logs
 
-TO check the logs of the Pod using kubectl log:
+To check the logs of the Pod using kubectl log:
 ```shell
 kubectl logs <pod-name>
 ```
 
-To reach the logs of the previously crashed container by specifying the `--previous` flag:
+Get the logs of the previously crashed container (via specifying the `--previous` flag):
 ```shell
 kubectl logs --previous <pod-name>
 ```
+
 To attach shell to the running process inside the container:
 ```shell
 kubectl attach <pod-name> -i -- sh (any command)
 ```
 
-Clean up
+## Clean up
 
 ```shell
 kubectl delete pods --all -n debug-space

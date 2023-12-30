@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+        has-metrics: "true"
+    spec:
+      containers:
+      - name: randomizer
+        image: akaliutau/randomizer:1.0
+        ports:
+        - containerPort: 8080

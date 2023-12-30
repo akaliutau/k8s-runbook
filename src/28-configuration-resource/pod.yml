@@ -1,0 +1,44 @@
+# Environment variables picked up from a ConfigMap
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: randomizer
+  labels:
+    app: randomizer
+spec:
+  containers:
+  - image: akaliutau/randomizer:1.0
+    name: randomizer
+    env:
+    # Configure Spring boot to pick up that configuration coming from
+    # a ConfigMap
+    - name: SPRING_CONFIG_LOCATION
+      value: /config/app/randomizer.properties
+    # Pattern environment variable is picked up from a config map
+    - name: PATTERN
+      valueFrom:
+        configMapKeyRef:
+          name: randomizer-config
+          key: PATTERN
+    # Use 'envFrom' to pick up multiple enviroment variables from a config map
+    envFrom:
+    - configMapRef:
+        name: randomizer-config
+        optional: false
+      prefix: CONFIG_
+    volumeMounts:
+    - name: config-volume
+      mountPath: /config
+  volumes:
+  # Volume is mounted directly from a config map
+  - name: config-volume
+    configMap:
+      name: randomizer-config
+      items:
+      # Mount only application properties under the provided path
+      # and with the given permission
+      - key: application.properties
+        path: app/randomizer.properties
+        mode: 0400
+

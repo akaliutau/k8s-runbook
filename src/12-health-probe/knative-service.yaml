@@ -1,0 +1,19 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: randomizer
+  namespace: knative-sample
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: akaliutau/randomizer:1.0
+            livenessProbe:
+              httpGet:
+                path: /actuator/health
+                port: 8080
+            readinessProbe:
+              exec:
+                command: [ "stat", "/opt/randomizer-ready" ]
