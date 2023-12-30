@@ -4,13 +4,13 @@
 
 Creating a pod with single container and checking the status of containers:
 ```shell
-kubectl apply -f src/01-simple-pod.yaml
+kubectl apply -f src/basics/01-simple-pod.yaml
 kubectl get pods -o wide
 ```
 
 Sharing data between containers (sidecar pattern)
 ```shell
-kubectl apply -f src/01-sidecar-pod.yaml
+kubectl apply -f src/basics/01-sidecar-pod.yaml
 kubectl get pods -o wide
 kubectl exec -n default test-pod -it -- /bin/sh
 wget <ip address of another pod>
@@ -18,8 +18,8 @@ wget <ip address of another pod>
 
 Deploying ReplicaSet and a Service:
 ```shell
-kubectl apply -f src/01-nginx-deployment.yaml
-kubectl apply -f src/01-nginx-service.yaml
+kubectl apply -f src/basics/01-nginx-deployment.yaml
+kubectl apply -f src/basics/01-nginx-service.yaml
 
 kubectl get pods -o wide
 kubectl get service
@@ -47,12 +47,12 @@ kubectl delete service nginx-service
 
 ## Configuration Management
 ```shell
-kubectl apply -f app-config.yaml
+kubectl apply -f src/basics/01-configuration.yaml
 kubectl get configmap app-config -o yaml
 ```
 
 Configuration from files:
 ```shell
-kubectl create configmap config-file --from-file=src/config.properties
+kubectl create configmap config-file --from-file=src/basics/config.properties
 kubectl get configmap config-file -o yaml
 ```

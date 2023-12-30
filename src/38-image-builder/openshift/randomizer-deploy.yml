@@ -1,0 +1,62 @@
+# DeploymentConfig for starting up the randomizer-runtime
+# With two replicas
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: randomizer
+spec:
+  replicas: 2
+  selector:
+    app: randomizer
+  template:
+    metadata:
+      labels:
+        app: randomizer
+    spec:
+      containers:
+      - image: ' '
+        name: randomizer
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+  triggers:
+  # Redeploy when configuration changes
+  - type: ConfigChange
+
+  # Redeploy when the image of the container 'randomizer' (the only container)
+  # changes. This happens after a build so that we have an automatic redeployment
+  # when a new build has been performed.
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - randomizer
+      from:
+        kind: ImageStreamTag
+        name: randomizer-runtime:latest
+    type: ImageChange
+---
+# A service for exposing our random generator
+apiVersion: v1
+kind: Service
+metadata:
+  name: randomizer
+spec:
+  selector:
+    app: randomizer
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+---
+# The route for accessing the service from externally.
+# Use `oc get route` to find out the URL
+# Best try it with:
+# curl -s $(oc get routes randomizer -o jsonpath={.spec.host})
+apiVersion: v1
+kind: Route
+metadata:
+  name: randomizer
+spec:
+  to:
+    kind: Service
+    name: randomizer

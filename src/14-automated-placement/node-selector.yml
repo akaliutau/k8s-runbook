@@ -1,0 +1,12 @@
+# Node selector example which only picks the node
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-selector
+spec:
+  containers:
+  - image: akaliutau/randomizer:1.0
+    name: randomizer
+  nodeSelector:
+    # Simple match on labels
+    disktype: ssd
