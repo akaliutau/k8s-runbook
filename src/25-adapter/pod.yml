@@ -27,7 +27,7 @@ spec:
   # ------------------------------------------------
   # Prometheus adapter. You find the source to this image
   # in the "image/" directory.
-  - image: k8stest/randomizer-exporter
+  - image: akaliutau/randomizer-exporter
     name: adapter
     env:
     # Logfile to pick up by exporter script

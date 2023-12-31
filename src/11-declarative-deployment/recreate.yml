@@ -27,7 +27,7 @@ spec:
           protocol: TCP
         livenessProbe:
           httpGet:
-            path: /actuator/health
+            path: /health
             port: 8080
           initialDelaySeconds: 15
         readinessProbe:

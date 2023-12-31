@@ -30,13 +30,11 @@ spec:
       valueFrom:
         fieldRef:
           fieldPath: status.podIP
-    # Build an URL from already defined variables. $(CONTEXT) is not defined yet
-    # and will be left unresolved
+    # Build on URL from already defined variables. $(CONTEXT) is not defined yet and will be left unresolved
     - name: MY_URL
       value: "https://$(IP):$(PORT)/$(CONTEXT)"
-    # Refer to an env var RANDOM_PATTERN from the secret imported above
     - name: DESCRIPTION
-      value: "Welcome to $(RANDOM_PATTERN) !"
+      value: "Hello, World !"
     # Path is defined here, but too late for being resolved in MY_URL
     - name: CONTEXT
       value: "login/"

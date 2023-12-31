@@ -1,5 +1,5 @@
 #!/bin/sh
-repo=k8stest/example-configuration-template-init
+repo=akaliutau/example-configuration-template-init
 echo "Building ---> ${repo}"
 extra_args=""
 if [ "x$1" == "x-p" ]; then

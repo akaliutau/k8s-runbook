@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: kubeapi-proxy
-        image: registry.kube-system.svc.cluster.local/k8stest/kubectl-proxy:kaniko
+        image: registry.kube-system.svc.cluster.local/akaliutau/kubectl-proxy:kaniko
       - name: shell
-        image: k8stest/curl-jq
+        image: akaliutau/curl-jq
         command:
         - "sleep"
         - "7200"

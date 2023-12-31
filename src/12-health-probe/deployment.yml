@@ -27,7 +27,7 @@ spec:
           # Spring Boot's actuator comes in handy as a liveness probe check
           # You can use the endpoint "/toggle-heath" to toggle the health state
           httpGet:
-            path: /actuator/health
+            path: /health
             port: 8080
           # How long to wait until the liveness check should kick it.
           initialDelaySeconds: 30

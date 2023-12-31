@@ -26,17 +26,6 @@ spec:
     # Validation schema
     schema:
       openAPIV3Schema:
-        type: object
-        properties:
-          configMap:
-            type: string
-            
-          podSelector:
-            type: object
-            
-            additionalProperties:
-              type: string
-      openAPIV3Schema:
           type: object
           properties:
             spec:

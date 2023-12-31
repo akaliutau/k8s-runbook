@@ -5,7 +5,7 @@ metadata:
   name: web-app
   labels:
     project: k8stest
-    pattern: Sidecar
+    cselector: web
 spec:
   containers:
   # Main container is a stock httpd serving from /var/www/html
@@ -46,7 +46,7 @@ kind: Service
 metadata:
   labels:
     project: k8stest
-    pattern: Sidecar
+    cselector: web
   name: web-app
 spec:
   ports:
@@ -55,7 +55,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    pattern: Sidecar
+    cselector: web
   # Just for demo
   type: NodePort
 

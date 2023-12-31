@@ -15,4 +15,4 @@ spec:
     # As registry we are using the registry service we have installed in
     # our namespace
     - name: IMAGE
-      value: registry:80/k8stest/randomizer
+      value: registry:80/akaliutau/randomizer

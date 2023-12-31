@@ -37,7 +37,7 @@ spec:
         # so don't forget them
         livenessProbe:
           httpGet:
-            path: /actuator/health
+            path: /health
             port: 8080
           initialDelaySeconds: 15
         readinessProbe:

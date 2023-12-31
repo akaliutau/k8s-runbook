@@ -1,4 +1,4 @@
-# Image: k8stest/kubeapi-proxy
+# Image: akaliutau/kubeapi-proxy
 FROM alpine
 ENV KUBECTL_VERSION=v1.26.3
 RUN apk update \

@@ -20,7 +20,7 @@ spec:
         # First Hard requirement for a config map to exist.
         configMapKeyRef:
           name: randomizer-config
-          key: pattern
+          key: frequency
       # Enabling logging into the mounted volume
     - name: LOG_FILE
       value: /tmp/logs/random.log

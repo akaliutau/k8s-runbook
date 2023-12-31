@@ -1,5 +1,14 @@
 # k8s-runbook
 
+This project has the aim to aggregate all best practice and standard patterns in describing Kubernetes cluster 
+in the form of well written and concise manifests.
+
+This collection of recipes, examples and useful articles should help to define a balanced, reliable Kubernetes environment.
+
+For hands-on exercises the real application is needed. In our case this is a simple Flask microservice which can generate 
+random number on each request (Randomizer). The source code is [here](https://github.com/akaliutau/randomizer)
+It's already published at docker.io, so not other work is needed
+
 # Content
 
 * K8s fundamentals
@@ -22,20 +31,18 @@
   * [Stateful Service](./src/20-stateful-service/run.md)
   * [Service Discovery](./src/21-service-discovery/run.md)
   * [Self Awareness](./src/22-self-awareness/run.md)
-  * []()
-  * []()
-  * []()
-  * []()
-  * []()
-  * []()
-  * []()
-  * []()
-  * []()
-  * []()
+  * [TBA]()
+
 
 [Thesaurus](./notes/thesaurus.md)
 
 
+# Further work
+
+Current status of the project: WIP (not all manifests were checked and validated, especially when it comes to 
+advanced topics like CRDs and Operators)
+
+The format most likely will change significantly in the future.
 
 
 

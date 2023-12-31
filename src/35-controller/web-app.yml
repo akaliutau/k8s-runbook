@@ -7,7 +7,7 @@ metadata:
   annotations:
     k8stest.xyz/podDeleteSelector: "app=webapp"
 data:
-  message: "Welcome to Kubernetes Patterns !"
+  message: "Hello World !"
 ---
 # Deployment for a super simple HTTP server which
 # serves the value of an environment variable to the browser.
@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: k8stest/mini-http-server
+        image: akaliutau/mini-http-server
         ports:
         - containerPort: 8080
         env:
