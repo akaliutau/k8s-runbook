@@ -13,15 +13,14 @@ spec:
       labels:
         app: random-refresher
     spec:
-      # Also run on the the master even it's tainted
+      # Also run on the master even it's tainted
       tolerations:
       - key: node-role.kubernetes.io/master
         operator: Exists
       containers:
       - image: akaliutau/randomizer:1.0
         name: randomizer
-        # A somewhat useless command to demonstrate the concept running
-        # on every node. This commands writes 10000 entries to /dev/random every 30s
+        # This commands writes 10000 entries to /dev/random every 30s
         command:
         - sh
         - -c

@@ -1,4 +1,4 @@
-# Imagename: k8stest/randomizer-log-ambassador
+# Imagename: akaliutau/randomizer-log-ambassador
 # Simple image for exposing the log file created by random-exporter
 
 # Yes, I know. But still the best language for quick and small system related tasks

@@ -22,7 +22,7 @@ spec:
       initContainers:
         # The init container holding our configuration. For switching to production 
         # you need to exchange this configuration image with the production variant
-      - image: k8stest/config-dev:1
+      - image: akaliutau/config-dev:1
         name: init
         imagePullPolicy: IfNotPresent
         args:
@@ -34,7 +34,7 @@ spec:
           name: config-directory
       containers:
         # The application to start and exposing a port at 8080
-      - image: k8stest/demo:1
+      - image: akaliutau/demo:1
         name: demo
         imagePullPolicy: IfNotPresent
         ports:

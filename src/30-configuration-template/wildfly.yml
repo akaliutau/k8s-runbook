@@ -35,7 +35,7 @@ items:
         # image container in the director "/in". The parameters come 
         # from a volume mounted configmap, the output goes 
         # to a emptyDir shared pod volume.        
-        - image: k8stest/example-configuration-template-init
+        - image: akaliutau/example-configuration-template-init
           name: init
           args:
           # Directory where the processed configurations files should be put in

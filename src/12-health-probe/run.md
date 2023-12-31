@@ -8,6 +8,18 @@ _liveness probes_ - regular checks performed by the Kubelet agent that asks your
 
 _readiness probes_ - to signal when a container is ready so that it has some time to warm up before getting hit with requests from the service
 
+```shell
+kubectl apply -f src/12-health-probe/deployment.yml
+kubectl get pods -o wide
+kubectl get deployment
+```
+
+Output:
+
+```shell
+NAME                          READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+randomizer-7c6846d7cd-zswlw   1/1     Running   0          39m   10.244.0.34   minikube   <none>           <none>
+```
 
 # References
 

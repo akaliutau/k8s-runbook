@@ -9,11 +9,11 @@ spec:
       has-metrics: "true"
   action: ALLOW
   rules:
-  # Allow for all Pods that want to acess the "/actuator/health" endpoint
+  # Allow for all Pods that want to acess the "/health" endpoint
   - from:
     - source:
         namespaces: [ "default" ]
     to:
     - operation:
         methods: ["GET"]
-        paths: ["/actuator/health"]
+        paths: ["/health"]

@@ -10,7 +10,7 @@ metadata:
 parameters:
   - name: CONFIG_IMAGE
     description: Image name of the configuration image to use
-    value: k8stest/config-dev:1
+    value: akaliutau/config-dev:1
 objects:  
 - apiVersion: v1
   kind: DeploymentConfig
@@ -44,7 +44,7 @@ objects:
       spec:
         containers:
           # The application to start and exposing a port at 8080
-        - image: k8stest/demo:1
+        - image: akaliutau/demo:1
           name: demo
           imagePullPolicy: IfNotPresent
           ports:

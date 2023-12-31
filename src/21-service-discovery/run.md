@@ -15,6 +15,25 @@ TLS termination, and name-based virtual hosting
 The real power of Ingress comes from reusing a single external load balancer and IP to service multiple Services and 
 reduce the number of resources in cluster (i.e. acts as a programmable paths' router)
 
+```shell
+kubectl apply -f src/21-service-discovery/service-with-loadbalancer.yml
+kubectl get svc
+```
+
+Output:
+```shell
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP          51m
+randomizer   LoadBalancer   10.108.40.118   <pending>     8080:32766/TCP   34m
+```
+Note: in minikube load balancers are not supported, so External IP will always be in `pending` status
+The service can be tested via local mapped url (`minikube service randomizer`), for example:
+
+```shell
+curl http://192.168.49.2:32766
+curl http://192.168.49.2:32766/info
+```
+
 # References
 
 [1] [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)

@@ -1,14 +1,13 @@
-# Image name: k8stest/mini-http-server
+# Image name: akaliutau/mini-http-server
 FROM alpine
 
-# Message to send out as response on any request
-ENV MESSAGE="Hello!"
+ENV RESP_MESSAGE="Hello from mini-http-server!"
 
 RUN apk update && apk add netcat-openbsd
 
 CMD [ \
   "/bin/ash", "-c", \
   "while true ; do \
-     echo -e \"HTTP/1.1 200 OK\n\n $MESSAGE\n\" | nc -l -p 8080 -q 1; \
+     echo -e \"HTTP/1.1 200 OK\n\n $RESP_MESSAGE\n\" | nc -l -p 8080 -q 1; \
   done \
 "]

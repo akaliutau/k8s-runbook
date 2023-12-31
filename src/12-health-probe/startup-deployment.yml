@@ -16,7 +16,7 @@ spec:
         app: randomizer
     spec:
       containers:
-      - image: k8stest/randomizer:2.0
+      - image: akaliutau/randomizer:2.0
         name: randomizer
         env:
         # Tell randomizer to wait 60 seconds when starting up so that the startup probe
@@ -30,7 +30,7 @@ spec:
           # Spring Boot's actuator comes in handy as a liveness probe check
           # You can use the endpoint "/toggle-heath" to toggle the health state
           httpGet:
-            path: /actuator/health
+            path: /health
             port: 8080
         readinessProbe:
           # We are checking for a file created by our app when its ready
@@ -39,7 +39,7 @@ spec:
         startupProbe:
           # Check the same endpoint as the liveness probe for the startup probe
           httpGet:
-            path: /actuator/health
+            path: /health
             port: 8080
           # Configure the startup probe to have a longer initial delay to allow the application to start
           initialDelaySeconds: 20

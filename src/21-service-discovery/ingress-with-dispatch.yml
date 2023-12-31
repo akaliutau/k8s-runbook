@@ -1,16 +1,23 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: randomizer
 spec:
-  rules:                              # <1>
+  rules:
   - http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: randomizer
-          servicePort: 8080
+          service:
+            name: randomizer
+            port:
+              number: 8080
       - path: /status
+        pathType: Prefix
         backend:
-          serviceName: service-status
-          servicePort: 80
+          service:
+            name: service-status
+            port:
+              number: 8080
+

@@ -41,9 +41,9 @@ spec:
       serviceAccountName: expose-controller
       containers:
       - name: kubeapi-proxy
-        image: k8stest/kubeapi-proxy
+        image: akaliutau/kubeapi-proxy
       - name: expose-controller
-        image: k8stest/curl-jq
+        image: akaliutau/curl-jq
         env:
         # The operator watches the namespace in which the controller
         # itself is installed (by using the Downward API)

@@ -10,7 +10,7 @@ spec:
     - "--dockerfile=Dockerfile"
     - "--context=dir:///build"
     - "--insecure"
-    - "--destination=registry.kube-system.svc.cluster.local/k8stest/kubectl-proxy:kaniko"
+    - "--destination=registry.kube-system.svc.cluster.local/akaliutau/kubectl-proxy:kaniko"
     volumeMounts:
     - name: build-dir
       mountPath: /build

@@ -21,5 +21,5 @@ spec:
       protocol: TCP
   # ------------------------------------------------
   # Ambassador used for logging out
-  - image: k8stest/randomizer-log-ambassador
+  - image: akaliutau/randomizer-log-ambassador
     name: ambassador

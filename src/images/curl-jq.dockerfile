@@ -1,4 +1,4 @@
-# Image name: k8stest/curl-jq
+# Image name: akaliutau/curl-jq
 FROM alpine
 RUN apk add --update \
     curl \

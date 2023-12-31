@@ -12,7 +12,7 @@ spec:
             image: akaliutau/randomizer:1.0
             livenessProbe:
               httpGet:
-                path: /actuator/health
+                path: /health
                 port: 8080
             readinessProbe:
               exec:

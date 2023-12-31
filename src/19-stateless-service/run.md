@@ -8,6 +8,11 @@ does not hold any information from requests in its internal storage (memory or t
 Stateless services are made of identical, replaceable instances that often offload state to external 
 permanent storage systems and use load-balancers for distributing incoming requests
 
+```shell
+kubectl apply -f src/19-stateless-service/service.yml
+kubectl get svc
+```
+
 
 
 # References

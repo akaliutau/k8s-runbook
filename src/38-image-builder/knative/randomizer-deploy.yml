@@ -14,7 +14,7 @@ spec:
         app: randomizer
     spec:
       containers:
-      - image: registry:80/k8stest/randomizer
+      - image: registry:80/akaliutau/randomizer
         imagePullPolicy: Always
         name: randomizer
         ports:
