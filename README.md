@@ -31,7 +31,22 @@ It's already published at docker.io, so not other work is needed
   * [Stateful Service](./src/20-stateful-service/run.md)
   * [Service Discovery](./src/21-service-discovery/run.md)
   * [Self Awareness](./src/22-self-awareness/run.md)
-  * [TBA]()
+  * [Init Container](./src/23-init-container/run.md)
+  * [Sidecar](./src/24-sidecar/run.md)
+  * [Adapter](./src/25-adapter/run.md)
+  * [Ambassador](./src/26-ambassador/run.md)
+  * [Env variables configuration](./src/27-env-var-configuration/run.md)
+  * [External configuration](./src/28-configuration-resource/run.md)
+  * [Immutable configuration](./src/29-immutable-configuration/run.md)
+  * [Configuration template](./src/30-configuration-template/run.md)
+  * [Process containment](./src/31-process-containment/run.md)
+  * [Network segmentation](./src/32-network-segmentation/run.md)
+  * [Secure configuration](./src/33-secure-configuration/run.md)
+  * [Controller](./src/35-controller/run.md)
+  * [Operator](./src/36-operator/run.md)
+  * [Elastic scaling/Auto-scaling](./src/37-elastic-scale/run.md)
+  * [Image builder](./src/38-image-builder/run.md)
+
 
 
 [Thesaurus](./notes/thesaurus.md)
