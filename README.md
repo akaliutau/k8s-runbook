@@ -9,6 +9,8 @@ For hands-on exercises the real application is needed. In our case this is a sim
 random number on each request (Randomizer). The source code is [here](https://github.com/akaliutau/randomizer)
 It's already published at docker.io, so not other work is needed
 
+One can test manifests either on local env (minikube), in the cloud (EKS or GKE) or using free sandboxes (see below)
+
 # Content
 
 * K8s fundamentals
@@ -47,6 +49,9 @@ It's already published at docker.io, so not other work is needed
   * [Elastic scaling/Auto-scaling](./src/37-elastic-scale/run.md)
   * [Image builder](./src/38-image-builder/run.md)
 
+* Playground/Free cloud sandbox
+  * [Play with k8s](https://labs.play-with-k8s.com/)
+  * [Killercoda](https://killercoda.com/playgrounds/scenario/kubernetes)
 
 
 [Thesaurus](./notes/thesaurus.md)

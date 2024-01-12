@@ -5,7 +5,7 @@
 Define a separate lifecycle for initialization-related tasks which are started _before_ the main application containers
 (defined in `initContainers` section)
 
-1) All containers in a Pod into two groups: _init containers_ and _application containers_
+1) All containers in a Pod are divided into two groups: _init containers_ and _application containers_
 2) All init containers are executed one by one
 3) If any task fails the main app will not start
 
