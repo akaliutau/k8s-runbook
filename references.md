@@ -4,18 +4,5 @@
 
 [2] [Best Practices for Writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
-[3] []()
+[3] [Official K8s documentation](https://kubernetes.io/docs/)
 
-[4] []()
-
-[5] []()
-
-[6] []()
-
-[7] []()
-
-[8] []()
-
-[9] []()
-
-[10] []()
